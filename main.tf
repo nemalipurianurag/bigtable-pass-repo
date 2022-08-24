@@ -83,7 +83,7 @@ resource "google_bigtable_instance" "bt_prod_instance701" {
   deletion_protection = false
 
   dynamic "cluster" {
-    for_each = slice(data.google_compute_zones.zones.names, 0, var.num_zones)
+    for_each = slice(data.google_compute_zones.zones.names, 0,1,var.num_zones)
     content {
       cluster_id   = "bt-instance-cluster701"
       storage_type = "HDD"
